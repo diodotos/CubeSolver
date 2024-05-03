@@ -3,10 +3,11 @@
 echo We are Fyze Tulyag and Richie Hsiung.
 echo Our project is making an efficient and optimal 2x2x2 Rubik\'s Cube solver. 
 echo We use an A\* search algorithm, and we are comparing its performance to a baseline BFS algorithm.
+echo We also want to do analysis about how good our heuristic is.
 echo This testing script will call the program with a few predetermined scrambles. 
 echo It will solve these scrambles with different solvers to compare time taken.
 echo Our program has a full CLI with many different modes and more features. This script just uses the default mode.
-echo Documentation about how to use the CLI and a more robust analysis \(including nice graphs\) of the performance of the program can be found at:
+echo Documentation about how to use the CLI and a more robust analysis \(including nice graphs\) of the performance and quality of our heuristic can be found at:
 echo https://github.com/diodotos/CubeSolver
 echo You can expect to see our implementation, astardual, consistently and significantly beating the baseline, bfs, in terms of time taken.
 
