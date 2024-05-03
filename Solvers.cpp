@@ -9,7 +9,7 @@
 #include "ABCCube.h"
 #include "Cube2Pieces.h"
 #include "Heuristic.h"
-#include "solvers.h"
+#include "Solvers.h"
 
 void BFSSolver::solve()
 {

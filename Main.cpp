@@ -22,7 +22,7 @@ void initArgparse(int argc, char** argv, argparse::ArgumentParser& program) {
 		.action([](const std::string& value) {
 			static const std::vector<std::string> choices = { "solve", "benchmark", "heuristic"};
 			if (std::find(choices.begin(), choices.end(), value) == choices.end()) {
-				throw std::runtime_error("mode must be 'scramble' or 'benchmark'");
+				throw std::runtime_error("mode must be 'solve', benchmark', or 'heuristic'");
 			}
 			return value;
 		});
@@ -141,6 +141,11 @@ void printData(const std::string& scramble, const Solver& s, const Cube2Pieces& 
 int main(int argc, char** argv)
 {
 	try {
+		// Initialize argparse
+		argparse::ArgumentParser program("CubeSolver");
+		initArgparse(argc, argv, program);
+		std::string mode = program.get<std::string>("mode");
+
 		// Initialize heuristic lookup tables
 		Heuristic::initOrientationLookup();
 		Heuristic::initPermutationLookup();
@@ -150,10 +155,6 @@ int main(int argc, char** argv)
 		PerfectHeuristic perfectHeuristic;
 		DualHeuristic dualHeuristic;
 
-		// Initialize argparse
-		argparse::ArgumentParser program("CubeSolver");
-		initArgparse(argc, argv, program);
-		std::string mode = program.get<std::string>("mode");
 
 		if (mode == "solve")
 		{
@@ -261,7 +262,7 @@ int main(int argc, char** argv)
 			file << "Hash,Perfect,Orientation,Permutation,Dual" << std::endl;
 			for (const auto& pair : Heuristic::perfectLookup)
 			{
-				const int mask_orientation = 0b1111111111111111000000000000000000000000;
+				const uint64_t mask_orientation = 0b1111111111111111000000000000000000000000;
 				uint64_t orientationHash = (pair.first & mask_orientation) >> 24;
 				uint64_t permutationHash = pair.first & ~mask_orientation;
 
