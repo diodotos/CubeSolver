@@ -34,10 +34,10 @@ Otherwise the program will default to `astardual`. If the program is called with
 
 A few examples of running the program with `solve`:
 
-    ./CubeSolver --solve --scramble "F2 U R' U F U' F2 R2 F'"                    # Uses astardual
-    ./CubeSolver --solve --scramble "R' U2 F' R2 F' U' R2 U2 R'" --solver bfs
-    ./CubeSolver --solve --scramble "U R' F' R2 F' U F U' F" --solver astarori
-    ./CubeSolver --solve --scramble "F U2 R' F U2 F U R' U'" --solver astarperf  # Uses the perfect heuristic. Will load the lookup table into memory.
+    ./CubeSolver solve --scramble "F2 U R' U F U' F2 R2 F'"                    # Uses astardual
+    ./CubeSolver solve --scramble "R' U2 F' R2 F' U' R2 U2 R'" --solver bfs
+    ./CubeSolver solve --scramble "U R' F' R2 F' U F U' F" --solver astarori
+    ./CubeSolver solve --scramble "F U2 R' F U2 F U R' U'" --solver astarperf  # Uses the perfect heuristic. Will load the lookup table into memory.
 
 The other modes are used for the analysis in the "Results" section.
 
